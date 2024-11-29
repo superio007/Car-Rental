@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OTA_VehAvailRateRS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.opentravel.org/OTA/2003/05" Target="Test" Version="2.007">
+    <Success/>
+    <Warnings>
+        <Warning Type="1" ShortText="TOLL CHARGE APPLIES" RecordID="510"/>
+        <Warning Type="1" ShortText="CREDIT CARD SURCHARGE OF 1.35% APPLIES TO QUALIFYING RENTALS" RecordID="766"/>
+        <Warning Type="1" ShortText="A BOND MAY APPLY." RecordID="767"/>
+    </Warnings>
+    <VehAvailRSCore>
+        <VehRentalCore PickUpDateTime="2024-09-07T10:00:00-06:00" ReturnDateTime="2024-09-09T10:00:00-06:00">
+            <PickUpLocation ExtendedLocationCode="MELT50" LocationCode="MEL" CodeContext="IATA"/>
+            <ReturnLocation ExtendedLocationCode="MELT50" LocationCode="MEL" CodeContext="IATA"/>
+        </VehRentalCore>
+        <VehVendorAvails>
+            <VehVendorAvail>
+                <Vendor Code="ZE"/>
+                <VehAvails>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="2" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="Unspecified" Code="EDAR" CodeContext="SIPP">
+                                <VehType VehicleCategory="1" DoorCount="4"/>
+                                <VehClass Size="3"/>
+                                <VehMakeModel Name="A SUZUKI SWIFT OR SIMILAR" Code="EDAR"/>
+                                <PictureURL>ZEAUEDAR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="298.40" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="42.54" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="149.20" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="298.40" EstimatedTotalAmount="467.99" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="100.61" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="10.44" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="16.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6601"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="40"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="41.81" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="2" AirConditionInd="true" TransmissionType="Manual" FuelType="Unspecified" DriveType="Unspecified" Code="CCMR" CodeContext="SIPP">
+                                <VehType VehicleCategory="1"/>
+                                <VehClass Size="4"/>
+                                <VehMakeModel Name="B TOYOTA COROLLA OR SIMILAR" Code="CCMR"/>
+                                <PictureURL>ZEAUCCMR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="298.40" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="42.28" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="149.20" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="298.40" EstimatedTotalAmount="465.09" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="99.97" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="10.44" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6602"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="21.82" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="30.91" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="4" BaggageQuantity="2" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="Unspecified" Code="CDAR" CodeContext="SIPP">
+                                <VehType VehicleCategory="1" DoorCount="4"/>
+                                <VehClass Size="4"/>
+                                <VehMakeModel Name="H HYUNDAI I30 OR SIMILAR" Code="CDAR"/>
+                                <PictureURL>ZEAUCDAR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="309.60" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="44.06" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="154.80" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="309.60" EstimatedTotalAmount="484.69" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="104.19" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="10.84" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="16.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6603"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="40"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="41.81" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="3" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="Unspecified" Code="IDAR" CodeContext="SIPP">
+                                <VehType VehicleCategory="1" DoorCount="4"/>
+                                <VehClass Size="6"/>
+                                <VehMakeModel Name="C TOYOTA COROLLA OR SIMILAR" Code="IDAR"/>
+                                <PictureURL>ZEAUIDAR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="376.80" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="52.91" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="188.40" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="376.80" EstimatedTotalAmount="581.96" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="125.06" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="13.19" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6604"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="21.82" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="27"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="5.00" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="38"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="5.00" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="30.91" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="3" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="Unspecified" Code="SDAR" CodeContext="SIPP">
+                                <VehType VehicleCategory="1" DoorCount="4"/>
+                                <VehClass Size="7"/>
+                                <VehMakeModel Name="S TOYOTA COROLLA OR SIMILAR" Code="SDAR"/>
+                                <PictureURL>ZEAUSDAR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="415.46" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="58.14" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="207.73" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="415.46" EstimatedTotalAmount="639.57" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="137.43" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="14.54" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6605"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="5" AirConditionInd="true" TransmissionType="Automatic" FuelType="Hybrid" DriveType="Unspecified" Code="SDAH" CodeContext="SIPP">
+                                <VehType VehicleCategory="1" DoorCount="4"/>
+                                <VehClass Size="7"/>
+                                <VehMakeModel Name="S2 TOYOTA COROLLA SEDAN HYBRID" Code="SDAH"/>
+                                <PictureURL>ZEAUSDAH999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="494.18" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="68.81" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="247.09" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="494.18" EstimatedTotalAmount="756.91" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="162.62" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="17.30" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6606"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="21.82" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="30.91" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="3" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="Unspecified" Code="FDAR" CodeContext="SIPP">
+                                <VehType VehicleCategory="1" DoorCount="4"/>
+                                <VehClass Size="8"/>
+                                <VehMakeModel Name="D TOYOTA CAMRY SEDAN OR SIMILAR" Code="FDAR"/>
+                                <PictureURL>ZEAUFDAR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="437.34" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="61.10" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="218.67" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="437.34" EstimatedTotalAmount="672.18" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="144.43" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="15.31" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6607"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="24.54" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="36.36" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="4" BaggageQuantity="2" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="Unspecified" Code="HFAR" CodeContext="SIPP">
+                                <VehType VehicleCategory="3"/>
+                                <VehClass Size="34"/>
+                                <VehMakeModel Name="H5 AUDI Q2" Code="HFAR"/>
+                                <PictureURL>ZEAUHFAR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="503.14" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="70.02" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="251.57" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="503.14" EstimatedTotalAmount="770.25" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="165.48" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="17.61" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6608"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="29.09" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="39.09" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="4" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="Unspecified" Code="CFAR" CodeContext="SIPP">
+                                <VehType VehicleCategory="3"/>
+                                <VehClass Size="4"/>
+                                <VehMakeModel Name="G MAZDA CX 30 OR SIMILAR" Code="CFAR"/>
+                                <PictureURL>ZEAUCFAR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="423.78" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="59.53" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="211.89" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="423.78" EstimatedTotalAmount="654.87" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="140.73" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="14.83" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="16.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6609"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="40"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="41.81" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="3" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="Unspecified" Code="DFAR" CodeContext="SIPP">
+                                <VehType VehicleCategory="3"/>
+                                <VehClass Size="35"/>
+                                <VehMakeModel Name="F5 Q3 35 TFSI SPORTBACK" Code="DFAR"/>
+                                <PictureURL>ZEAUDFAR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="558.04" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="77.46" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="279.02" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="558.04" EstimatedTotalAmount="852.08" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="183.05" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="19.53" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6610"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="29.09" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="39.09" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="4" AirConditionInd="true" TransmissionType="Automatic" FuelType="Hybrid" DriveType="Unspecified" Code="CFAH" CodeContext="SIPP">
+                                <VehType VehicleCategory="3"/>
+                                <VehClass Size="4"/>
+                                <VehMakeModel Name="G2 TOYOTA CROSS HYBRID OR SIMILAR" Code="CFAH"/>
+                                <PictureURL>ZEAUCFAH999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="1000.00" CurrencyCode="AUD" IncludedInRate="false">
+                                        <Calculation UnitCharge="500.00" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="1000.00" EstimatedTotalAmount="1020.33" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="4.48" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6611"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="30.91" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="45.45" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="4" AirConditionInd="true" TransmissionType="Automatic" FuelType="Hybrid" DriveType="Unspecified" Code="IFAH" CodeContext="SIPP">
+                                <VehType VehicleCategory="3"/>
+                                <VehClass Size="6"/>
+                                <VehMakeModel Name="J2 TOYOTA RAV4 HYBRID OR SIMILAR" Code="IFAH"/>
+                                <PictureURL>ZEAUIFAH999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="505.12" CurrencyCode="AUD" IncludedInRate="false">
+                                        <Calculation UnitCharge="252.56" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="505.12" EstimatedTotalAmount="525.45" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="4.48" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6612"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="24.54" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="36.36" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="4" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="AWD" Code="JFDR" CodeContext="SIPP">
+                                <VehType VehicleCategory="3"/>
+                                <VehClass Size="36"/>
+                                <VehMakeModel Name="V5 AUDI Q5 INC. GPS" Code="JFDR"/>
+                                <PictureURL>ZEAUJFDR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="529.62" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="73.61" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="264.81" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="529.62" EstimatedTotalAmount="809.73" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="173.96" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="18.54" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6613"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="29.09" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="39.09" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                    <VehAvail>
+                        <VehAvailCore Status="Available" IsAlternateInd="false">
+                            <Vehicle PassengerQuantity="5" BaggageQuantity="5" AirConditionInd="true" TransmissionType="Manual" FuelType="Unspecified" DriveType="Unspecified" Code="FFMR" CodeContext="SIPP">
+                                <VehType VehicleCategory="3"/>
+                                <VehClass Size="8"/>
+                                <VehMakeModel Name="F TOYOTA PRADO" Code="FFMR"/>
+                                <PictureURL>ZEAUFFMR999.jpg</PictureURL>
+                            </Vehicle>
+                            <RentalRate>
+                                <RateDistance Unlimited="false" Quantity="300" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                                <VehicleCharges>
+                                    <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="485.72" CurrencyCode="AUD" IncludedInRate="false">
+                                        <TaxAmounts>
+                                            <TaxAmount Total="67.66" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                                        </TaxAmounts>
+                                        <Calculation UnitCharge="242.86" UnitName="Day" Quantity="2"/>
+                                    </VehicleCharge>
+                                    <VehicleCharge Purpose="8" TaxInclusive="false" GuaranteedInd="true" Amount="0.25" CurrencyCode="AUD" IncludedInRate="false">
+                                        <Calculation UnitCharge="0.25" UnitName="Km" Quantity="1"/>
+                                    </VehicleCharge>
+                                </VehicleCharges>
+                                <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D02NAU"/>
+                            </RentalRate>
+                            <TotalCharge RateTotalAmount="485.72" EstimatedTotalAmount="744.29" CurrencyCode="AUD"/>
+                            <Fees>
+                                <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="159.91" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="17.00" CurrencyCode="AUD"/>
+                                <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="14.00" CurrencyCode="AUD"/>
+                            </Fees>
+                            <Reference Type="16" ID="Z0DIHFJAHP12796-6614"/>
+                        </VehAvailCore>
+                        <VehAvailInfo>
+                            <PricedCoverages>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="24"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="30.91" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                                <PricedCoverage Required="false">
+                                    <Coverage CoverageType="56"/>
+                                    <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                                        <Calculation UnitCharge="45.45" UnitName="Day" Quantity="1"/>
+                                    </Charge>
+                                </PricedCoverage>
+                            </PricedCoverages>
+                        </VehAvailInfo>
+                    </VehAvail>
+                </VehAvails>
+                <Info>
+                    <LocationDetails Name="MELBOURNE APT">
+                        <Address FormattedInd="false">
+                            <AddressLine>TULLAMARINE AIRPORT</AddressLine>
+                            <AddressLine>ARRIVAL DRV, TULLAMARINE</AddressLine>
+                            <CityName>MELBOURNE VIC (1)</CityName>
+                            <PostalCode>3045</PostalCode>
+                            <StateProv StateCode="VI">VICTORIA</StateProv>
+                            <CountryName Code="AU">AUSTRALIA</CountryName>
+                        </Address>
+                        <Telephone PhoneLocationType="4" PhoneTechType="1" PhoneNumber=" 03 93384044" FormattedInd="false"/>
+                        <AdditionalInfo>
+                            <ParkLocation Location="1"/>
+                            <CounterLocation Location="1"/>
+                            <OperationSchedules>
+                                <OperationSchedule>
+                                    <OperationTimes>
+                                        <OperationTime Text="MON-FRI 0600-0100 SAT 0700-2200 SUN 0700-2400"/>
+                                        <OperationTime Mon="true" Start="00:01" End="01:00"/>
+                                        <OperationTime Mon="true" Start="06:00" End="23:59"/>
+                                        <OperationTime Tue="true" Start="00:01" End="01:00"/>
+                                        <OperationTime Tue="true" Start="06:00" End="23:59"/>
+                                        <OperationTime Weds="true" Start="00:01" End="01:00"/>
+                                        <OperationTime Weds="true" Start="06:00" End="23:59"/>
+                                        <OperationTime Thur="true" Start="00:01" End="01:00"/>
+                                        <OperationTime Thur="true" Start="06:00" End="23:59"/>
+                                        <OperationTime Fri="true" Start="00:01" End="01:00"/>
+                                        <OperationTime Fri="true" Start="06:00" End="23:59"/>
+                                        <OperationTime Sat="true" Start="07:00" End="22:00"/>
+                                        <OperationTime Sun="true" Start="07:00" End="23:59"/>
+                                    </OperationTimes>
+                                </OperationSchedule>
+                            </OperationSchedules>
+                        </AdditionalInfo>
+                    </LocationDetails>
+                </Info>
+            </VehVendorAvail>
+        </VehVendorAvails>
+    </VehAvailRSCore>
+</OTA_VehAvailRateRS>

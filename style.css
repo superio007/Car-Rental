@@ -1,0 +1,245 @@
+body{
+    background-color: #f4f7fa;
+}
+/* index */
+#hero h1{
+    font-size: 2.4rem;
+}
+#hero #searchbox .input_div{
+    width: -webkit-fill-available;
+}
+#searchbox .input_div{
+    width: 10rem;
+}
+.input_div{
+    caret-color: rgb(5, 121, 230);
+    border: none;
+    outline: none;
+    &:focus{
+        border: none;
+        outline: none;
+    }
+}
+.outer_div{
+    border: 1px solid #0000007d;
+    padding: 0.2rem;
+    &:hover{
+        border:rgb(5, 121, 230) 1px solid;
+    }
+}
+#drop,#pick {
+    caret-color: rgb(5, 121, 230);
+    &:hover{
+        border:rgb(5, 121, 230) 1px solid;
+    }
+    &::placeholder{
+        padding-left: 0.5rem;
+    }
+    &:focus{
+        padding-left: 0.5rem;
+        border-left:rgb(5, 121, 230) 10px solid;
+        &::placeholder{
+            padding-left: 0;
+        }
+    }
+}
+#icon{
+    color: #808080;
+    &:hover{
+        color:red;
+    }
+}
+footer  a{
+    text-decoration: none;
+    color:#000000;
+    display: block;
+    &:hover{
+        color:red;
+    }
+}
+/* #searchbox{
+    width: max-content;
+} */
+
+/* results  */
+
+/* Common width for all dropdowns */
+details {
+    width: 200px; /* Set equal width for all details */
+    margin-right: 1rem; /* Add some spacing between dropdowns */
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    padding: 0.5rem;
+    border: 2px solid #e8ecf0;
+    cursor: pointer;
+}
+
+.shown {
+    position: absolute;
+    width: 100%; /* Ensures the dropdown content matches the width of the summary */
+    top: 100%;
+    left: 0;
+    padding: 1rem;
+    border: 2px solid #e8ecf0;
+    background-color: white;
+    z-index: 1; /* Ensure it appears above other content */
+}
+
+.shown label {
+    font-size: 1rem;
+}
+
+.shown input {
+    margin-right: 0.5rem;
+}
+
+#price_table img{
+    width: 6rem;
+}
+.res_card{
+    background-color: #fff;
+    border: 1px solid #0000000f;
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+.res_pay{
+    background-color: #f4f7fa;
+    border-top: 2px solid black; 
+    display: grid;
+    padding: 0.5rem;
+}
+.car_spec{
+    background-color: #ced1d4;
+    width: max-content;
+    padding: 8px;
+    border-radius: 7px;
+}
+.car_spec img{
+    width:0.9rem;
+}
+.car_info img{
+    width:0.9rem;
+}
+/* book page */
+#book .back_div{
+    background-color: white;
+    border-radius: 0.5rem;
+}
+#book .astrict{
+    color: red;
+    font-size: 9px;
+    position: relative;
+    top: -20px;
+    margin-right: 5px;
+}
+#book .input_div label{
+    font-weight: 700;
+    font-size: larger;
+    text-transform: uppercase;
+}
+#book #popUp #searchbox{
+    width: auto !important;
+}
+.ui-timepicker-container{
+    z-index: 9999 !important;
+}
+/* suggestion box  */
+.suggestion-box {
+    position: absolute; /* Absolute positioning to place the box directly below input */
+    top: 65px; /* Adjusted top position */
+    width: 434px; /* Fixed width */
+    right: 13px; /* Aligned right */
+    z-index: 1000; /* Ensure it appears above other elements */
+    background-color: white; /* White background */
+    border: 1px solid #ccc; /* Light gray border */
+    max-height: 350px; /* Limit the height to 200px */
+    overflow-y: auto; /* Enable vertical scrolling when necessary */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 0; /* Remove padding inside the suggestion box */
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent wrapping of text */
+    border-bottom: 1px solid #ddd; /* Light separator between items */
+    &:hover {
+        background-color: #f0f0f0; /* Highlight background on hover */
+    }
+    &:last-child {
+        border-bottom: none; /* Remove border from the last item */
+    }
+}
+@media screen and (max-width: 769px) {
+    /* index */
+    #hero h1{
+        font-size: 1.4rem;
+    }
+    /* book page */
+    #book .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    #countryCode {
+        margin: 0 !important;
+    }
+    #price_table_mobile img{
+        width: 3rem;
+    }
+    /* #price_table_mobile .col{
+        width: 0.1rem;
+    } */
+    .suggestionBox-mobile {
+        position: absolute;
+        top: 548px;
+        width: 349px;
+        right: 31px;
+        z-index: 1000;
+        background-color: white;
+        border: 1px solid #ccc;
+        max-height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 0;
+    }
+
+    .drop-suggestionBox-mobile {
+        position: absolute;
+        top: 627px;
+        width: 349px;
+        right: 31px;
+        z-index: 1000;
+        background-color: white;
+        border: 1px solid #ccc;
+        max-height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 0;
+    }
+
+    .suggestion-item-mobile,.drop-suggestion-item-mobile {
+        padding: 10px;
+        cursor: pointer;
+        white-space: nowrap; /* Prevent wrapping of text */
+        border-bottom: 1px solid #ddd; /* Light separator between items */
+        &:hover{
+            background-color: #f0f0f0;
+        }
+        &:last-child{
+            border-bottom: none;
+        }
+    }
+}

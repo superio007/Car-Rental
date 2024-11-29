@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OTA_VehAvailRateRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.008">
+    <POS>
+        <Source ISOCountry="AU" AgentDutyCode="T17R16L5D11">
+            <RequestorID Type="4" ID="X975">
+                <CompanyName Code="CP" CodeContext="4PH5"></CompanyName>
+            </RequestorID>
+        </Source>
+        <Source>
+            <RequestorID Type="8" ID="ZE"/>
+        </Source>
+    </POS>
+    <VehAvailRQCore Status="All">
+        <VehRentalCore PickUpDateTime="2024-09-07T10:00:00" ReturnDateTime="2024-09-09T10:00:00">
+            <PickUpLocation LocationCode="MEL" CodeContext="IATA"/>
+            <ReturnLocation LocationCode="MEL" CodeContext="IATA"/>
+        </VehRentalCore>
+    </VehAvailRQCore>
+</OTA_VehAvailRateRQ>

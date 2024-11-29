@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OTA_VehResRS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.opentravel.org/OTA/2003/05" Target="Test" Version="2.007">
+    <Success/>
+    <Warnings>
+        <Warning Type="1" ShortText="TOLL CHARGE APPLIES" RecordID="510"/>
+        <Warning Type="1" ShortText="CREDIT CARD SURCHARGE OF 1.35% APPLIES TO QUALIFYING RENTALS" RecordID="766"/>
+        <Warning Type="1" ShortText="A BOND MAY APPLY." RecordID="767"/>
+    </Warnings>
+    <VehResRSCore>
+        <VehReservation>
+            <Customer>
+                <Primary>
+                    <PersonName>
+                        <GivenName>KIRAN</GivenName>
+                        <Surname>DHOKE</Surname>
+                    </PersonName>
+                </Primary>
+            </Customer>
+            <VehSegmentCore>
+                <ConfID Type="14" ID="K972B7245D9"/>
+                <Vendor Code="ZE"/>
+                <VehRentalCore PickUpDateTime="2024-09-07T16:30:00-06:00" ReturnDateTime="2024-09-09T21:30:00-06:00">
+                    <PickUpLocation ExtendedLocationCode="MELT50" LocationCode="MEL" CodeContext="IATA"/>
+                    <ReturnLocation ExtendedLocationCode="MELT50" LocationCode="MEL" CodeContext="IATA"/>
+                </VehRentalCore>
+                <Vehicle PassengerQuantity="4" BaggageQuantity="2" AirConditionInd="true" TransmissionType="Automatic" FuelType="Unspecified" DriveType="Unspecified" Code="CDAR" CodeContext="SIPP">
+                    <VehType VehicleCategory="1" DoorCount="4"/>
+                    <VehClass Size="4"/>
+                    <VehMakeModel Name="H HYUNDAI I30 OR SIMILAR" Code="CDAR"/>
+                    <PictureURL>ZEAUCDAR999.jpg</PictureURL>
+                </Vehicle>
+                <RentalRate>
+                    <RateDistance Unlimited="true" DistUnitName="Km" VehiclePeriodUnitName="RentalPeriod"/>
+                    <VehicleCharges>
+                        <VehicleCharge Purpose="1" TaxInclusive="false" GuaranteedInd="true" Amount="454.35" CurrencyCode="AUD" IncludedInRate="false">
+                            <TaxAmounts>
+                                <TaxAmount Total="64.74" CurrencyCode="AUD" Percentage="10.00" Description="Tax"/>
+                            </TaxAmounts>
+                            <Calculation UnitCharge="151.45" UnitName="Day" Quantity="3"/>
+                        </VehicleCharge>
+                    </VehicleCharges>
+                    <RateQualifier ArriveByFlight="false" RateCategory="3" RateQualifier="D03NSG"/>
+                </RentalRate>
+                <Fees>
+                    <Fee Purpose="5" TaxInclusive="false" Description="LOCATION FEE:" Amount="153.07" CurrencyCode="AUD"/>
+                    <Fee Purpose="5" TaxInclusive="false" Description="ADMN RECOVERY:" Amount="15.90" CurrencyCode="AUD"/>
+                    <Fee Purpose="5" TaxInclusive="false" Description="VEHICLE REGISTRATION RECOVERY:" Amount="24.00" CurrencyCode="AUD"/>
+                </Fees>
+                <TotalCharge RateTotalAmount="454.35" EstimatedTotalAmount="712.06" CurrencyCode="AUD"/>
+            </VehSegmentCore>
+            <VehSegmentInfo>
+                <PricedCoverages>
+                    <PricedCoverage Required="false">
+                        <Coverage CoverageType="24"/>
+                        <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                            <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                        </Charge>
+                    </PricedCoverage>
+                    <PricedCoverage Required="false">
+                        <Coverage CoverageType="40"/>
+                        <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                            <Calculation UnitCharge="41.81" UnitName="Day" Quantity="1"/>
+                        </Charge>
+                    </PricedCoverage>
+                    <PricedCoverage Required="false">
+                        <Coverage CoverageType="56"/>
+                        <Charge TaxInclusive="false" IncludedInRate="false" CurrencyCode="AUD">
+                            <Calculation UnitCharge="40.90" UnitName="Day" Quantity="1"/>
+                        </Charge>
+                    </PricedCoverage>
+                </PricedCoverages>
+                <LocationDetails Code="MEL" Name="MELBOURNE APT" ExtendedLocationCode="MELT50">
+                    <Address FormattedInd="false">
+                        <AddressLine>TULLAMARINE AIRPORT</AddressLine>
+                        <AddressLine>ARRIVAL DRV, TULLAMARINE</AddressLine>
+                        <CityName>MELBOURNE VIC (1)</CityName>
+                        <PostalCode>3045</PostalCode>
+                        <StateProv StateCode="VI">VICTORIA</StateProv>
+                        <CountryName Code="AU">AUSTRALIA</CountryName>
+                    </Address>
+                    <Telephone PhoneLocationType="4" PhoneTechType="1" PhoneNumber=" 03 93384044" FormattedInd="false"/>
+                    <AdditionalInfo>
+                        <ParkLocation Location="1"/>
+                        <CounterLocation Location="1"/>
+                        <OperationSchedules>
+                            <OperationSchedule>
+                                <OperationTimes>
+                                    <OperationTime Text="MON-FRI 0600-0100 SAT 0700-2200 SUN 0700-2400"/>
+                                    <OperationTime Mon="true" Start="00:01" End="01:00"/>
+                                    <OperationTime Mon="true" Start="06:00" End="23:59"/>
+                                    <OperationTime Tue="true" Start="00:01" End="01:00"/>
+                                    <OperationTime Tue="true" Start="06:00" End="23:59"/>
+                                    <OperationTime Weds="true" Start="00:01" End="01:00"/>
+                                    <OperationTime Weds="true" Start="06:00" End="23:59"/>
+                                    <OperationTime Thur="true" Start="00:01" End="01:00"/>
+                                    <OperationTime Thur="true" Start="06:00" End="23:59"/>
+                                    <OperationTime Fri="true" Start="00:01" End="01:00"/>
+                                    <OperationTime Fri="true" Start="06:00" End="23:59"/>
+                                    <OperationTime Sat="true" Start="07:00" End="22:00"/>
+                                    <OperationTime Sun="true" Start="07:00" End="23:59"/>
+                                </OperationTimes>
+                            </OperationSchedule>
+                        </OperationSchedules>
+                    </AdditionalInfo>
+                </LocationDetails>
+            </VehSegmentInfo>
+        </VehReservation>
+    </VehResRSCore>
+</OTA_VehResRS>

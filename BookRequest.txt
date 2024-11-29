@@ -1,0 +1,49 @@
+<OTA_VehResRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.008">
+    <POS>
+        <Source ISOCountry="IN" AgentDutyCode="T17R16L5D11">
+            <RequestorID Type="4" ID="X975">
+                <CompanyName Code="CP" CodeContext="4PH5"/>
+            </RequestorID>
+        </Source>
+    </POS>
+    <VehResRQCore>
+        <VehRentalCore PickUpDateTime="2024-09-07T16:30:00" ReturnDateTime="2024-09-09T21:30:00">
+            <PickUpLocation LocationCode="MEL" CodeContext="IATA"/>
+            <ReturnLocation LocationCode="MEL" CodeContext="IATA"/>
+        </VehRentalCore>
+        <Customer>
+            <Primary>
+                <PersonName>
+                    <GivenName>Kiran</GivenName>
+                    <Surname>Dhoke</Surname>
+                </PersonName>
+                <Email>dhokekiran88@gmail.com</Email>
+                <Address>
+                    <AddressLine>123 Main St</AddressLine>
+                    <CityName>Los Angeles</CityName>
+                    <StateProv StateCode="CA"/>
+                    <CountryName Code="AU"/>
+                </Address>
+            </Primary>
+            <AdditionalDrivers>
+                <Driver>
+                    <PersonName>
+                        <GivenName>Jane</GivenName>
+                        <Surname>Smith</Surname>
+                    </PersonName>
+                    <DriverLicense>
+                        <LicenseNumber>987654321</LicenseNumber>
+                        <StateProvince>NY</StateProvince>
+                        <Country>US</Country>
+                    </DriverLicense>
+                    <Age>30</Age>
+                </Driver>
+            </AdditionalDrivers>
+        </Customer>
+        <VendorPref Code="ZE"/>
+        <VehPref Code="CDAR" CodeContext="SIPP"/>
+        <RentalPaymentPref>
+            <Voucher Identifier="12345678" IdentifierContext="TestVoucher"/>
+        </RentalPaymentPref>
+    </VehResRQCore>
+</OTA_VehResRQ>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OTA_VehCancelRS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.opentravel.org/OTA/2003/05" Target="Test" Version="3.003">
+    <Success/>
+    <VehCancelRSCore CancelStatus="Cancelled">
+        <UniqueID Type="15" ID="K972B7245D9"/>
+    </VehCancelRSCore>
+    <VehCancelRSInfo/>
+</OTA_VehCancelRS>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OTA_VehCancelRQ xmlns="http://www.opentravel.org/OTA/2003/05" Version="1.008">
+    <POS>
+        <Source PseudoCityCode="XXXX" ISOCountry="US" AgentDutyCode="T17R16L5D11">
+            <RequestorID Type="4" ID="X975">
+                <CompanyName Code="CP" CodeContext="4PH5"/>
+            </RequestorID>
+        </Source>
+        <Source>
+            <RequestorID Type="5" ID="ota2007a"/>
+        </Source>
+    </POS>
+    <VehCancelRQCore CancelType="Book">
+        <UniqueID Type="14" ID="K972B7245D9"/>
+        <PersonName>
+            <Surname>DHOKE</Surname>
+        </PersonName>
+    </VehCancelRQCore>
+</OTA_VehCancelRQ>
