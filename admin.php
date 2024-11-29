@@ -12,9 +12,7 @@ $decodedArray = decodeJWT($jwtToken);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script
-        src="https://kit.fontawesome.com/74e6741759.js"
-        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ed4167ae3c.js" crossorigin="anonymous"></script>
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         rel="stylesheet"

@@ -10,7 +10,7 @@ session_start();
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/74e6741759.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ed4167ae3c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -1254,555 +1254,186 @@ session_start();
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        //for hertz
-        let carCategory_Hertz = null; // Declare globally to access across functions
-        let pickupSelected_Hertz = false;
-        let vendorId_Hertz = null;
-        let dropoffSelected_Hertz = false;
-        let infoObject_Hertz = {};
-        let pickupData_Hertz = {};
-        let dropoffData_Hertz = {};
+        // General function to initialize vendor-specific logic
+        function initializeVendor(vendorName, dataAttributes) {
+            let carCategory = null;
+            let pickupSelected = false;
+            let dropoffSelected = false;
+            let vendorId = null;
+            let infoObject = {};
+            let pickupData = {};
+            let dropoffData = {};
 
-        // Handle the "Show Locations" button click
-        document.querySelectorAll('.showLocation_Hertz').forEach(function(e) {
-            e.addEventListener('click', function(event) {
-                carCategory_Hertz = event.target.id.replace("showLocation_Hertz", ""); // Assign the car category
-                vendorId_Hertz = event.target.dataset.vendorid;
-                console.log("Selected car category:", carCategory_Hertz);
-                console.log("Selected vendor ID:", vendorId_Hertz);
-                infoObject_Hertz = {
-                    pickUpDateTime: <?php echo json_encode($dataArray['pickUpDateTime']); ?>,
-                    dropOffDateTime: <?php echo json_encode($dataArray['dropOffDateTime']); ?>,
-                    vendorId: vendorId_Hertz,
-                    carCategory: carCategory_Hertz
-                };
-                console.log(infoObject_Hertz);
-                // Show the correct "Show Quotes" section and hide others
-                document.querySelectorAll('.show_Hertz').forEach(function(el) {
-                    if (el.id === `showQuote_Hertz_${carCategory_Hertz}`) {
-                        el.classList.remove('d-none');
-                    } else {
-                        el.classList.add('d-none');
-                    }
-                });
+            // Handle "Show Locations" button click
+            document.querySelectorAll(`.showLocation_${vendorName}`).forEach(function(button) {
+                button.addEventListener("click", function(event) {
+                    carCategory = event.target.id.replace(`showLocation_${vendorName}`, ""); // Extract car category
+                    vendorId = event.target.dataset[dataAttributes.vendor];
+                    console.log(`[${vendorName}] Selected car category:`, carCategory);
+                    console.log(`[${vendorName}] Selected vendor ID:`, vendorId);
 
-                // Reset pickup and dropoff selections when switching categories
-                pickupSelected_Hertz = false;
-                dropoffSelected_Hertz = false;
-                pickupData_Hertz = {};
-                dropoffData_Hertz = {};
-            });
-        });
+                    // Build info object
+                    infoObject = {
+                        pickUpDateTime: <?php echo json_encode($dataArray['pickUpDateTime']); ?>,
+                        dropOffDateTime: <?php echo json_encode($dataArray['dropOffDateTime']); ?>,
+                        vendorId,
+                        carCategory,
+                    };
+                    console.log(`[${vendorName}] Info Object:`, infoObject);
 
-        // Handle the selection of pickup and dropoff locations
-        function handleSelection(event, type) {
-            const targetDiv =
-                type === "pickup" ?
-                `#pickupLocationName_div_Hertz_${carCategory_Hertz}` :
-                `#dropoffLocationName_div_Hertz_${carCategory_Hertz}`;
-
-            const selectedData = {
-                hertz: event.target.getAttribute("data-hertz"),
-                euro: event.target.getAttribute("data-euro"),
-            };
-
-            console.log(
-                `${type.charAt(0).toUpperCase() + type.slice(1)} location: Hertz - ${
-            selectedData.hertz
-        }, Euro - ${selectedData.euro}`
-            );
-
-            if (selectedData.hertz || selectedData.euro) {
-                // Clear any previously selected location
-                const prevSelected = document.querySelector(`${targetDiv} .selected`);
-                if (prevSelected) prevSelected.classList.remove("selected");
-
-                // Mark the new location as selected
-                event.target.classList.add("selected");
-
-                if (type === "pickup") {
-                    pickupData_Hertz = selectedData;
-                    pickupSelected_Hertz = true;
-                } else {
-                    dropoffData_Hertz = selectedData;
-                    dropoffSelected_Hertz = true;
-                }
-
-                console.log("Pickup Data:", pickupData_Hertz);
-                console.log("Dropoff Data:", dropoffData_Hertz);
-            }
-
-            // Trigger quote retrieval when both locations are selected
-            if (pickupSelected_Hertz && dropoffSelected_Hertz) {
-                callGetQuoteHertz();
-            }
-        }
-
-        // Add click listeners for pickup and dropoff locations
-        document.addEventListener("click", function(event) {
-            // Match pickup location clicks
-            if (
-                event.target &&
-                event.target.matches(`.pickupLocationName_div_Hertz p`)
-            ) {
-                handleSelection(event, "pickup");
-            }
-
-            // Match dropoff location clicks
-            if (
-                event.target &&
-                event.target.matches(`.dropoffLocationName_div_Hertz p`)
-            ) {
-                handleSelection(event, "dropoff");
-            }
-        });
-
-        // console.log("infoObject_Hertz:", infoObject_Hertz);
-        // Function to call the server for a quote
-        function callGetQuoteHertz() {
-            console.log("Calling getQuote with:");
-            console.log("Car Category:", carCategory_Hertz);
-            console.log("Pickup Data:", pickupData_Hertz);
-            console.log("Dropoff Data:", dropoffData_Hertz);
-
-            if (!carCategory_Hertz) {
-                console.error("Car category is not selected!");
-                return;
-            }
-
-            const data = {
-                carCategory: infoObject_Hertz.carCategory,
-                vendorId: vendorId_Hertz,
-                pickup: pickupData_Hertz['euro'],
-                dropOff: dropoffData_Hertz['euro'],
-                pickUpDateTime: infoObject_Hertz.pickUpDateTime,
-                dropOffDateTime: infoObject_Hertz.dropOffDateTime
-            };
-
-            console.log("getQuote Data:", data);
-
-            fetch("getQuote.php", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                })
-                .then((response) => response.text()) // Parse as text to debug issues
-                .then((text) => {
-                    try {
-                        const json = JSON.parse(text); // Try parsing as JSON
-                        console.log("Quote Response:", json);
-
-                        // Check if the results array exists
-                        if (Array.isArray(json.results) && json.results.length > 0) {
-                            // Iterate over the results
-                            json.results.forEach((item) => {
-                                if (item.Name && item.Code && item.RateTotalAmount && item.CurrencyCode) {
-                                    const {
-                                        Name,
-                                        Code,
-                                        RateTotalAmount,
-                                        CurrencyCode
-                                    } = item;
-
-                                    // Select the payment info div for the corresponding car category
-                                    const paymentInfoDiv = document.querySelector(
-                                        `#showQuote_Hertz_${Code} #Pay_div`
-                                    );
-
-                                    // Update the HTML if the div exists
-                                    if (paymentInfoDiv) {
-                                        paymentInfoDiv.innerHTML += `
-                                            <div>
-                                                <p>Rental Rate:${CurrencyCode} ${RateTotalAmount}</p>
-                                            </div>
-                                        `;
-                                    }
-                                } else {
-                                    console.error("Missing data in one of the results:", item);
-                                }
-                            });
+                    // Show the relevant "Show Quotes" section and hide others
+                    document.querySelectorAll(`.show_${vendorName}`).forEach(function(section) {
+                        if (section.id === `showQuote_${vendorName}_${carCategory}`) {
+                            section.classList.remove("d-none");
                         } else {
-                            console.error("No results found in the response", json);
+                            section.classList.add("d-none");
                         }
-                    } catch (error) {
-                        console.error("Failed to parse JSON response:", text);
-                    }
-                })
-                .catch((error) => console.error("Fetch error:", error));
+                    });
 
-        }
-        // for thrifty
-
-        let carCategory_Thrifty = null; // Declare globally to access across functions
-        let pickupSelected_Thrifty = false;
-        let vendorIdThrifty = null;
-        let dropoffSelected_Thrifty = false;
-        let infoObject_Thrifty = {};
-        let pickupData_Thrifty = {};
-        let dropoffData_Thrifty = {};
-
-        // Handle the "Show Locations" button click
-        document.querySelectorAll('.showLocation_Thrifty').forEach(function(e) {
-            e.addEventListener('click', function(event) {
-                console.log(event);
-                carCategory_Thrifty = event.target.id.replace("showLocation_Thrifty", ""); // Assign the car category
-                vendorIdThrifty = event.target.dataset.thrifty;
-                console.log("Selected car category:", carCategory_Thrifty);
-                console.log("Selected vendor ID:", vendorIdThrifty);
-                infoObject_Thrifty = {
-                    pickUpDateTime: <?php echo json_encode($dataArray['pickUpDateTime']); ?>,
-                    dropOffDateTime: <?php echo json_encode($dataArray['dropOffDateTime']); ?>,
-                    vendorId: vendorIdThrifty,
-                    carCategory: carCategory_Thrifty
-                };
-                console.log(infoObject_Thrifty);
-                // Show the correct "Show Quotes" section and hide others
-                document.querySelectorAll('.show_Thrifty').forEach(function(el) {
-                    if (el.id === `showQuote_Thrifty_${carCategory_Thrifty}`) {
-                        el.classList.remove('d-none');
-                    } else {
-                        el.classList.add('d-none');
-                    }
+                    // Reset selections
+                    pickupSelected = false;
+                    dropoffSelected = false;
+                    pickupData = {};
+                    dropoffData = {};
                 });
-
-                // Reset pickup and dropoff selections when switching categories
-                pickupSelected_Thrifty = false;
-                dropoffSelected_Thrifty = false;
-                pickupData_Thrifty = {};
-                dropoffData_Thrifty = {};
             });
-        });
 
-        // Handle the selection of pickup and dropoff locations
-        function handleSelection(event, type) {
-            const targetDiv =
-                type === "pickup" ?
-                `#pickupLocationName_div_Thrifty_${carCategory_Thrifty}` :
-                `#dropoffLocationName_div_Thrifty_${carCategory_Thrifty}`;
+            // Handle selection of pickup and dropoff locations
+            function handleSelection(event, type) {
+                const targetDiv =
+                    type === "pickup" ?
+                    `#pickupLocationName_div_${vendorName}_${carCategory}` :
+                    `#dropoffLocationName_div_${vendorName}_${carCategory}`;
 
-            const selectedData = {
-                hertz: event.target.getAttribute("data-hertz"),
-                euro: event.target.getAttribute("data-euro"),
-            };
+                const selectedData = {
+                    hertz: event.target.getAttribute("data-hertz"),
+                    euro: event.target.getAttribute("data-euro"),
+                };
 
-            console.log(
-                `${type.charAt(0).toUpperCase() + type.slice(1)} location: Hertz - ${
-            selectedData.hertz
-        }, Euro - ${selectedData.euro}`
-            );
+                console.log(
+                    `[${vendorName}] ${type.charAt(0).toUpperCase() + type.slice(1)} location:`,
+                    `Hertz - ${selectedData.hertz}, Euro - ${selectedData.euro}`
+                );
 
-            if (selectedData.hertz || selectedData.euro) {
-                // Clear any previously selected location
-                const prevSelected = document.querySelector(`${targetDiv} .selected`);
-                if (prevSelected) prevSelected.classList.remove("selected");
+                if (selectedData.hertz || selectedData.euro) {
+                    // Clear previously selected location
+                    const prevSelected = document.querySelector(`${targetDiv} .selected`);
+                    if (prevSelected) prevSelected.classList.remove("selected");
 
-                // Mark the new location as selected
-                event.target.classList.add("selected");
+                    // Mark the new location as selected
+                    event.target.classList.add("selected");
 
-                if (type === "pickup") {
-                    pickupData_Thrifty = selectedData;
-                    pickupSelected_Thrifty = true;
-                } else {
-                    dropoffData_Thrifty = selectedData;
-                    dropoffSelected_Thrifty = true;
+                    if (type === "pickup") {
+                        pickupData = selectedData;
+                        pickupSelected = true;
+                    } else {
+                        dropoffData = selectedData;
+                        dropoffSelected = true;
+                    }
+
+                    console.log(`[${vendorName}] Pickup Data:`, pickupData);
+                    console.log(`[${vendorName}] Dropoff Data:`, dropoffData);
                 }
 
-                console.log("Pickup Data:", pickupData_Thrifty);
-                console.log("Dropoff Data:", dropoffData_Thrifty);
+                // Trigger quote retrieval when both locations are selected
+                if (pickupSelected && dropoffSelected) {
+                    callGetQuote();
+                }
             }
 
-            // Trigger quote retrieval when both locations are selected
-            if (pickupSelected_Thrifty && dropoffSelected_Thrifty) {
-                callGetQuoteThrifty();
-            }
-        }
+            // Add event listeners for pickup and dropoff location selection
+            document.addEventListener("click", function(event) {
+                if (event.target && event.target.matches(`.pickupLocationName_div_${vendorName} p`)) {
+                    handleSelection(event, "pickup");
+                }
+                if (event.target && event.target.matches(`.dropoffLocationName_div_${vendorName} p`)) {
+                    handleSelection(event, "dropoff");
+                }
+            });
 
-        // Add click listeners for pickup and dropoff locations
-        document.addEventListener("click", function(event) {
-            // Match pickup location clicks
-            if (
-                event.target &&
-                event.target.matches(`.pickupLocationName_div_Thrifty p`)
-            ) {
-                handleSelection(event, "pickup");
-            }
+            // Function to call the server for a quote
+            function callGetQuote() {
+                console.log(`[${vendorName}] Calling getQuote with:`);
+                console.log("Car Category:", carCategory);
+                console.log("Pickup Data:", pickupData);
+                console.log("Dropoff Data:", dropoffData);
 
-            // Match dropoff location clicks
-            if (
-                event.target &&
-                event.target.matches(`.dropoffLocationName_div_Thrifty p`)
-            ) {
-                handleSelection(event, "dropoff");
-            }
-        });
+                if (!carCategory) {
+                    console.error(`[${vendorName}] Car category is not selected!`);
+                    return;
+                }
 
-        // console.log("infoObject_Thrifty:", infoObject_Thrifty);
-        // Function to call the server for a quote
-        function callGetQuoteThrifty() {
-            console.log("Calling getQuote with:");
-            console.log("Car Category:", carCategory_Thrifty);
-            console.log("Pickup Data:", pickupData_Thrifty);
-            console.log("Dropoff Data:", dropoffData_Thrifty);
+                const data = {
+                    carCategory: infoObject.carCategory,
+                    vendorId: infoObject.vendorId,
+                    pickup: pickupData.euro,
+                    dropOff: dropoffData.euro,
+                    pickUpDateTime: infoObject.pickUpDateTime,
+                    dropOffDateTime: infoObject.dropOffDateTime,
+                };
 
-            if (!carCategory_Thrifty) {
-                console.error("Car category is not selected!");
-                return;
-            }
+                console.log(`[${vendorName}] getQuote Data:`, data);
 
-            const data = {
-                carCategory: infoObject_Thrifty.carCategory,
-                vendorId: vendorIdThrifty,
-                pickup: pickupData_Thrifty['euro'],
-                dropOff: dropoffData_Thrifty['euro'],
-                pickUpDateTime: infoObject_Thrifty.pickUpDateTime,
-                dropOffDateTime: infoObject_Thrifty.dropOffDateTime
-            };
+                fetch("getQuote.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(data),
+                    })
+                    .then((response) => response.text()) // Parse as text to debug issues
+                    .then((text) => {
+                        try {
+                            const json = JSON.parse(text); // Try parsing as JSON
+                            console.log(`[${vendorName}] Quote Response:`, json);
 
-            console.log("getQuote Data:", data);
+                            if (Array.isArray(json.results) && json.results.length > 0) {
+                                json.results.forEach((item) => {
+                                    if (item.Name && item.Code && item.RateTotalAmount && item.CurrencyCode) {
+                                        const {
+                                            Name,
+                                            Code,
+                                            RateTotalAmount,
+                                            CurrencyCode
+                                        } = item;
 
-            fetch("getQuote.php", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                })
-                .then((response) => response.text()) // Parse as text to debug issues
-                .then((text) => {
-                    try {
-                        const json = JSON.parse(text); // Try parsing as JSON
-                        console.log("Quote Response:", json);
+                                        const paymentInfoDiv = document.querySelector(
+                                            `#showQuote_${vendorName}_${Code} #Pay_div`
+                                        );
 
-                        // Check if the results array exists
-                        if (Array.isArray(json.results) && json.results.length > 0) {
-                            // Iterate over the results
-                            json.results.forEach((item) => {
-                                if (item.Name && item.Code && item.RateTotalAmount && item.CurrencyCode) {
-                                    const {
-                                        Name,
-                                        Code,
-                                        RateTotalAmount,
-                                        CurrencyCode
-                                    } = item;
-
-                                    // Select the payment info div for the corresponding car category
-                                    const paymentInfoDiv = document.querySelector(
-                                        `#showQuote_Thrifty_${Code} #Pay_div`
-                                    );
-
-                                    // Update the HTML if the div exists
-                                    if (paymentInfoDiv) {
-                                        paymentInfoDiv.innerHTML += `
+                                        if (paymentInfoDiv) {
+                                            paymentInfoDiv.innerHTML += `
                                         <div>
-                                            <p>Rental Rate:${CurrencyCode} ${RateTotalAmount}</p>
+                                            <p>Rental Rate: ${CurrencyCode} ${RateTotalAmount}</p>
                                         </div>
-                                        `;
+                                    `;
+                                        }
+                                    } else {
+                                        console.error(`[${vendorName}] Missing data in one of the results:`, item);
                                     }
-                                } else {
-                                    console.error("Missing data in one of the results:", item);
-                                }
-                            });
-                        } else {
-                            console.error("No results found in the response", json);
+                                });
+                            } else {
+                                console.error(`[${vendorName}] No results found in the response`, json);
+                            }
+                        } catch (error) {
+                            console.error(`[${vendorName}] Failed to parse JSON response:`, text);
                         }
-                    } catch (error) {
-                        console.error("Failed to parse JSON response:", text);
-                    }
-                })
-                .catch((error) => console.error("Fetch error:", error));
+                    })
+                    .catch((error) => console.error(`[${vendorName}] Fetch error:`, error));
+            }
         }
 
-        // for doller
-
-        let carCategory_doller = null; // Declare globally to access across functions
-        let pickupSelected_doller = false;
-        let vendorIddoller = null;
-        let dropoffSelected_doller = false;
-        let infoObject_doller = {};
-        let pickupData_doller = {};
-        let dropoffData_doller = {};
-
-        // Handle the "Show Locations" button click
-        document.querySelectorAll('.showLocation_doller').forEach(function(e) {
-            e.addEventListener('click', function(event) {
-                console.log(event);
-
-                // Extract car category and vendor ID
-                carCategory_doller = event.target.id.replace("showLocation_doller", ""); // Assign the car category
-                vendorIddoller = event.target.dataset.doller;
-                console.log("Selected car category:", carCategory_doller);
-                console.log("Selected vendor ID:", vendorIddoller);
-
-                // Info object for the selected car category
-                infoObject_doller = {
-                    pickUpDateTime: <?php echo json_encode($dataArray['pickUpDateTime']); ?>,
-                    dropOffDateTime: <?php echo json_encode($dataArray['dropOffDateTime']); ?>,
-                    vendorId: vendorIddoller,
-                    carCategory: carCategory_doller
-                };
-                console.log("infoObject_doller:", infoObject_doller);
-
-                // Show the correct "Show Quotes" section and hide others
-                document.querySelectorAll('.show_doller').forEach(function(el) {
-                    console.log(`Checking element with id: ${el.id}`);
-                    if (el.id === `showQuote_doller_${carCategory_doller}`) {
-                        console.log(`Matching element found: ${el.id}`);
-                        el.classList.remove('d-none');
-                    } else {
-                        el.classList.add('d-none');
-                    }
-                });
-
-                // Reset pickup and dropoff selections
-                pickupSelected_doller = false;
-                dropoffSelected_doller = false;
-                pickupData_doller = {};
-                dropoffData_doller = {};
-            });
+        // Initialize each vendor
+        initializeVendor("Hertz", {
+            vendor: "vendorid"
+        });
+        initializeVendor("Thrifty", {
+            vendor: "thrifty"
+        });
+        initializeVendor("doller", {
+            vendor: "doller"
         });
 
-
-
-        // Handle the selection of pickup and dropoff locations
-        function handleSelection(event, type) {
-            const targetDiv =
-                type === "pickup" ?
-                `#pickupLocationName_div_doller_${carCategory_doller}` :
-                `#dropoffLocationName_div_doller_${carCategory_doller}`;
-
-            const selectedData = {
-                hertz: event.target.getAttribute("data-hertz"),
-                euro: event.target.getAttribute("data-euro"),
-            };
-
-            console.log(
-                `${type.charAt(0).toUpperCase() + type.slice(1)} location: Hertz - ${
-            selectedData.hertz
-        }, Euro - ${selectedData.euro}`
-            );
-
-            if (selectedData.hertz || selectedData.euro) {
-                // Clear any previously selected location
-                const prevSelected = document.querySelector(`${targetDiv} .selected`);
-                if (prevSelected) prevSelected.classList.remove("selected");
-
-                // Mark the new location as selected
-                event.target.classList.add("selected");
-
-                if (type === "pickup") {
-                    pickupData_doller = selectedData;
-                    pickupSelected_doller = true;
-                } else {
-                    dropoffData_doller = selectedData;
-                    dropoffSelected_doller = true;
-                }
-
-                console.log("Pickup Data:", pickupData_doller);
-                console.log("Dropoff Data:", dropoffData_doller);
-            }
-
-            // Trigger quote retrieval when both locations are selected
-            if (pickupSelected_doller && dropoffSelected_doller) {
-                callGetQuoteDoller();
-            }
-        }
-
-        // Add click listeners for pickup and dropoff locations
-        document.addEventListener("click", function(event) {
-            // Match pickup location clicks
-            if (
-                event.target &&
-                event.target.matches(`.pickupLocationName_div_doller p`)
-            ) {
-                handleSelection(event, "pickup");
-            }
-
-            // Match dropoff location clicks
-            if (
-                event.target &&
-                event.target.matches(`.dropoffLocationName_div_doller p`)
-            ) {
-                handleSelection(event, "dropoff");
-            }
-        });
-
-        // console.log("infoObject_doller:", infoObject_doller);
-        // Function to call the server for a quote
-        function callGetQuoteDoller() {
-            console.log("Calling getQuote with:");
-            console.log("Car Category:", carCategory_doller);
-            console.log("Pickup Data:", pickupData_doller);
-            console.log("Dropoff Data:", dropoffData_doller);
-
-            if (!carCategory_doller) {
-                console.error("Car category is not selected!");
-                return;
-            }
-
-            const data = {
-                carCategory: infoObject_doller.carCategory,
-                vendorId: vendorIddoller,
-                pickup: pickupData_doller['euro'],
-                dropOff: dropoffData_doller['euro'],
-                pickUpDateTime: infoObject_doller.pickUpDateTime,
-                dropOffDateTime: infoObject_doller.dropOffDateTime
-            };
-
-            console.log("getQuote Data:", data);
-
-            fetch("getQuote.php", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(data),
-                })
-                .then((response) => response.text()) // Parse as text to debug issues
-                .then((text) => {
-                    try {
-                        const json = JSON.parse(text); // Try parsing as JSON
-                        console.log("Quote Response:", json);
-
-                        // Check if the results array exists
-                        if (Array.isArray(json.results) && json.results.length > 0) {
-                            // Iterate over the results
-                            json.results.forEach((item) => {
-                                if (item.Name && item.Code && item.RateTotalAmount && item.CurrencyCode) {
-                                    const {
-                                        Name,
-                                        Code,
-                                        RateTotalAmount,
-                                        CurrencyCode
-                                    } = item;
-
-                                    // Select the payment info div for the corresponding car category
-                                    const paymentInfoDiv = document.querySelector(
-                                        `#showQuote_doller_${Code} #Pay_div`
-                                    );
-
-                                    // Update the HTML if the div exists
-                                    if (paymentInfoDiv) {
-                                        paymentInfoDiv.innerHTML += `
-                                        <div>
-                                            <p>Rental Rate:${CurrencyCode} ${RateTotalAmount}</p>
-                                        </div>
-                                        `;
-                                    }
-                                } else {
-                                    console.error("Missing data in one of the results:", item);
-                                }
-                            });
-                        } else {
-                            console.error("No results found in the response", json);
-                        }
-                    } catch (error) {
-                        console.error("Failed to parse JSON response:", text);
-                    }
-                })
-                .catch((error) => console.error("Fetch error:", error));
-        }
 
         document.querySelectorAll('td.text-center').forEach(function(td) {
             td.addEventListener('click', function() {
