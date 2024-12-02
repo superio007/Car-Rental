@@ -19,6 +19,7 @@ session_start();
     if (!isset($_SESSION['jwtToken'])) {
         echo "<script>window.location.href='login.php';</script>";
     }
+    
     $responseZE = $_SESSION['responseZE'];
     // var_dump($responseZE);
     $responseZT = $_SESSION['responseZT'];
@@ -27,6 +28,7 @@ session_start();
     // var_dump($responseZR);
     $dataArray = $_SESSION['dataarray'];
     var_dump($dataArray);
+    
     require "dbconn.php";
     $pickUp = $dataArray['pickLocation'] ?? '';
     $drop = $dataArray['dropLocation'] ?? '';
@@ -68,7 +70,7 @@ session_start();
         // 'LargeSize' => ['FDAR'],
         'LuxurySportsCar' => [37],
         'SUV' => [4],
-        'StationWagon' => [8], // Not in the XML
+        'StationWagon' => [8], // Not in the XMLvc b
         'VanPeopleCarrier' => [2], // Not in the XML
         '7-12PassengerVans' => [2] // Not in the XML
     ];
@@ -203,6 +205,7 @@ session_start();
 
     // Fetch all rows into an array
     $locations = $result->fetch_all(MYSQLI_ASSOC);
+    
     $conn->close();
     ?>
     <style>
@@ -704,7 +707,7 @@ session_start();
                                                     </div>
                                                     <div class="res_pay">
                                                         <div class="d-flex">
-                                                            <a href="book.php?reference=' . $reference . '&vdNo=ZE"; class="btn btn-primary">BOOK NOW</a>
+                                                            <a href="book.php?carCategory=' . $Code . '&vdNo=ZE"; class="btn btn-primary">BOOK NOW</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -789,7 +792,7 @@ session_start();
                                     </div>
                                     <div class="res_pay">
                                         <div class="d-flex">
-                                            <a href="book.php?reference=' . $reference . '&vdNo=ZE"; class="btn btn-primary">BOOK NOW</a>
+                                            <a href="book.php?carCategory=' . $Code . '&vdNo=ZE"; class="btn btn-primary">BOOK NOW</a>
                                         </div>
                                     </div>
                                 </div>
@@ -926,7 +929,7 @@ session_start();
                                                     </div>
                                                     <div class="res_pay">
                                                         <div class="d-flex">
-                                                            <a href="book.php?reference=' . $reference . '&vdNo=ZT"; class="btn btn-primary">BOOK NOW</a>
+                                                            <a href="book.php?carCategory=' . $Code . '&vdNo=ZT"; class="btn btn-primary">BOOK NOW</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1011,7 +1014,7 @@ session_start();
                                     </div>
                                     <div class="res_pay">
                                         <div class="d-flex">
-                                            <a href="book.php?reference=' . $reference . '&vdNo=ZT"; class="btn btn-primary">BOOK NOW</a>
+                                            <a href="book.php?carCategory=' . $Code . '&vdNo=ZT"; class="btn btn-primary">BOOK NOW</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1150,7 +1153,7 @@ session_start();
                                                     </div>
                                                     <div class="res_pay">
                                                         <div class="d-flex">
-                                                            <a href="book.php?reference=' . $reference . '&vdNo=ZR"; class="btn btn-primary">BOOK NOW</a>
+                                                            <a href="book.php?carCategory=' . $Code . '&vdNo=ZR"; class="btn btn-primary">BOOK NOW</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1236,7 +1239,7 @@ session_start();
                                     </div>
                                     <div class="res_pay">
                                         <div class="d-flex">
-                                            <a href="book.php?reference=' . $reference . '&vdNo=ZR"; class="btn btn-primary">BOOK NOW</a>
+                                            <a href="book.php?carCategory=' . $Code . '&vdNo=ZR"; class="btn btn-primary">BOOK NOW</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1274,8 +1277,8 @@ session_start();
 
                     // Build info object
                     infoObject = {
-                        pickUpDateTime: <?php echo json_encode($dataArray['pickUpDateTime']); ?>,
-                        dropOffDateTime: <?php echo json_encode($dataArray['dropOffDateTime']); ?>,
+                        pickUpDateTime: "<?php echo $dataArray['pickUpDateTime']; ?>",
+                        dropOffDateTime: "<?php echo $dataArray['dropOffDateTime']; ?>",
                         vendorId,
                         carCategory,
                     };
@@ -1338,6 +1341,27 @@ session_start();
                 // Trigger quote retrieval when both locations are selected
                 if (pickupSelected && dropoffSelected) {
                     callGetQuote();
+                    let SessionUpdateData = {
+                        "pickup": pickupData['euro'], // Ensure consistent key name
+                        "dropOff": dropoffData['euro'],
+                        "pickUpTime": infoObject.pickUpDateTime,
+                        "dropOffTime": infoObject.dropOffDateTime,
+                    };
+                    console.log("Session Update Data:", SessionUpdateData);
+                    fetch("updateSession.php", {
+                            method: "POST",
+                            headers: { // Correct header casing
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(SessionUpdateData)
+                        })
+                        .then(response => response.json())
+                        .then(result => {
+                            console.log("Success", result);
+                        })
+                        .catch(error => {
+                            console.log("Error", error);
+                        });
                 }
             }
 
@@ -1389,6 +1413,10 @@ session_start();
 
                             if (Array.isArray(json.results) && json.results.length > 0) {
                                 json.results.forEach((item) => {
+                                    const paymentInfoDiv = document.querySelector(
+                                        `#showQuote_${vendorName}_${item.Code || "unknown"} #Pay_div`
+                                    );
+
                                     if (item.Name && item.Code && item.RateTotalAmount && item.CurrencyCode) {
                                         const {
                                             Name,
@@ -1397,29 +1425,34 @@ session_start();
                                             CurrencyCode
                                         } = item;
 
-                                        const paymentInfoDiv = document.querySelector(
-                                            `#showQuote_${vendorName}_${Code} #Pay_div`
-                                        );
-
                                         if (paymentInfoDiv) {
                                             paymentInfoDiv.innerHTML += `
-                                        <div>
-                                            <p>Rental Rate: ${CurrencyCode} ${RateTotalAmount}</p>
-                                        </div>
-                                    `;
+                                <div>
+                                    <p>Rental Rate: ${CurrencyCode} ${RateTotalAmount}</p>
+                                </div>
+                            `;
                                         }
-                                    } else {
-                                        console.error(`[${vendorName}] Missing data in one of the results:`, item);
                                     }
                                 });
                             } else {
                                 console.error(`[${vendorName}] No results found in the response`, json);
+                                const paymentInfoDiv = document.querySelector(
+                                    `#showQuote_${vendorName}_${item.Code || "unknown"} #Pay_div`
+                                );
+                                if (paymentInfoDiv) {
+                                    paymentInfoDiv.innerHTML += `
+                                <div>
+                                    <p>Not Available</p>
+                                </div>
+                            `;
+                                }
                             }
                         } catch (error) {
                             console.error(`[${vendorName}] Failed to parse JSON response:`, text);
                         }
                     })
                     .catch((error) => console.error(`[${vendorName}] Fetch error:`, error));
+
             }
         }
 

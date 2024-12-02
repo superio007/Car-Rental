@@ -1,7 +1,27 @@
 <?php
 session_start();
 header('Content-Type: application/json');
+require "dbconn.php";
+$sql = "SELECT MarkupPrice FROM `markup_price`";
+$result = $conn->query($sql);
 
+if ($result->num_rows > 0) {
+  // output data of each row
+  while ($row = $result->fetch_assoc()) {
+    $markUp = $row['MarkupPrice'];
+  }
+} else {
+  echo "0 results";
+}
+function calculatePercentage($part, $total)
+{
+  $og = $total;
+  if ($total == 0) {
+    return "Total cannot be zero"; // To avoid division by zero error
+  }
+  $percentage = ($total * $part) / 100;
+  return $percentage + $og;
+}
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $rawData = file_get_contents('php://input');
   $requestData = json_decode($rawData, true);
@@ -61,11 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($xml->VehAvailRSCore->VehVendorAvails->VehVendorAvail->VehAvails->VehAvail as $vehAvail) {
       // Check if the VehMakeModel code matches the specified carCategory
       if ((string) $vehAvail->VehAvailCore->Vehicle->VehMakeModel['Code'] === $carCategory) {
+        $rate = calculatePercentage($markUp, (float) $vehAvail->VehAvailCore->TotalCharge['RateTotalAmount']);
         // Add the matching item to the results array
         $filteredResults[] = [
           'Name' => (string) $vehAvail->VehAvailCore->Vehicle->VehMakeModel['Name'],
           'Code' => (string) $vehAvail->VehAvailCore->Vehicle->VehMakeModel['Code'],
-          'RateTotalAmount' => (string) $vehAvail->VehAvailCore->TotalCharge['RateTotalAmount'],
+          'RateTotalAmount' => $rate,
           'CurrencyCode' => (string) $vehAvail->VehAvailCore->TotalCharge['CurrencyCode'],
         ];
       }
@@ -75,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($filteredResults)) {
       echo json_encode(['results' => $filteredResults]);
     } else {
-      echo "No vehicles found matching the specified category: $carCategory";
+      echo "No vehicles found matching the specified category";
     }
   } else {
     echo json_encode(['error' => 'Invalid JSON payload']);
